@@ -1,0 +1,297 @@
+/* style backup, versão que funcionava sem escalar o tamanho dos elementos em 1.5x */
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: #f0f0f0;
+}
+
+.controls {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: fit-content;
+}
+
+.controls h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.85em;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input-group input:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  justify-content: flex-start;
+}
+
+.checkbox-group label {
+  margin: 0;
+  font-weight: normal;
+  cursor: pointer;
+  font-size: 0.80em;
+  font-weight: lighter;
+  color: #333;
+}
+
+.checkbox-group input {
+  flex: 1;
+  cursor: pointer;
+  max-width: 12%;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* --- ÁREA DE VISUALIZAÇÃO --- */
+.preview-area {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* --- ESTILOS DA ETIQUETA --- */
+.etiqueta {
+  width: 21cm;
+  /* Aprox. largura A4 */
+  height: 14.8cm;
+  /* Aprox. meia altura A4 (A5) */
+  background: white;
+  border: 1px solid #000;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* Sombra apenas para visualização na tela */
+}
+
+/* Topo */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.header img {
+  height: 70px;
+  margin-right: 30px;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.header-text p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+/* Nome do Produto */
+.produto-nome {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  flex-grow: 1;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word;
+}
+
+/* Grades de Informação */
+.box {
+  border: 2px solid #000;
+  text-align: center;
+  position: relative;
+  padding-top: 5px;
+  background: white;
+}
+
+.box label {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  background: white;
+  padding: 0 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.qtd-val {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.valor-gigante {
+  font-size: 5rem;
+  font-weight: bold;
+  line-height: 1;
+  margin: 15px 0 10px 0;
+}
+
+.valor-medio {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Rodapé */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  gap: 5px;
+}
+
+.footer-item {
+  border-top: 1px solid #000;
+  padding-top: 2px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.footer-item span {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  min-height: 1.2em;
+}
+
+.footer-item label {
+  font-size: 0.6rem;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* --- MODO DE IMPRESSÃO --- */
+@page {
+  size: A4 landscape;
+  /* Define o papel pro driver da impressora */
+  margin: 0;
+  /* REMOVE MARGENS DO NAVEGADOR */
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    width: 100vw;
+    height: 100vh;
+    /* Ocupa a janela toda */
+    overflow: hidden;
+    /* Evita página extra em branco */
+  }
+
+  .controls {
+    display: none;
+  }
+
+  .preview-area {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .etiqueta {
+    width: 100vw;
+    /* Largura total do papel */
+    height: 100vh;
+    /* Altura total do papel */
+    border: none;
+    /* Remove borda externa */
+    transform: none;
+    /* Remove o zoom out da visualização de tela */
+    padding: 10mm;
+    /* Margem interna de segurança (safe zone) */
+    box-shadow: none;
+    position: fixed;
+    /* Fixa no topo esquerdo */
+    top: 0;
+    left: 0;
+  }
+
+  /* Ajustes finos para impressão garantida */
+  .box {
+    border-width: 2px;
+  }
+
+  .header {
+    border-bottom-width: 2px;
+  }
+
+  .footer-item {
+    border-top-width: 2px;
+  }
+}
